@@ -83,7 +83,13 @@ li {
 	}
 }
 /* end of title h1 */
-
+/* h2 */
+h2 {
+	font-size: 18px;
+	font-family: 'Lato';
+	font-weight: bold;
+}
+/* end of h2 */
 /* p border */
 .pborder {
 	width: 60%;
@@ -154,17 +160,6 @@ nav ul {
 		margin-left: 15%;
 	}
 }
-.boxsmall {
-	display: none;
-}
-@media (max-width: 768px){
-	.box {
-		display: none !important;
-	}
-	.boxsmall {
-		display: inline;
-	}
-}
 .contentwrap {
 	width: 80%;
 	min-height: 1000px;
@@ -204,6 +199,7 @@ nav ul {
 	border: 1px solid black;
 }
 .portofoliuwrap {
+	display: flex block;
 	margin-top: 7%;
 }
 .footerwrap {
@@ -373,4 +369,14 @@ textarea {
 .authorpost {
 	font-style: italic;
 	font-size: 14px;
+}
+.portofoliuwrap img {
+	margin-left: 3px;
+	vertical-align: middle;
+}
+.portofoliuwrap p {
+	padding: 5px;
+}
+.portofoliuwrap .pborder {
+	margin-top: 10px;
 }
