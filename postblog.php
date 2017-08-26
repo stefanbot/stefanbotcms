@@ -11,23 +11,10 @@
 </head>
 <body>
 	<?php
+	include 'classes.php';
 	$blogtitle = $_POST['blogtitle'];
 	$blogcontent = $_POST['blogcontent'];
 	$blogsubmit = $_POST['blogsubmit'];
-	Class Blogpost {
-	 public function post_msg($blogtitle, $blogcontent) {
-	 	include 'connection.php';
-		$stmt = $pdo->prepare("INSERT INTO blog(title, content) VALUES(?, ?)");
-		$stmt->bindParam(1, $blogtitle);
-		$stmt->bindParam(2, $blogcontent);
-		$posttoblog = $stmt->execute();
-		if ( $posttoblog == TRUE) {
-			echo "New post created!";
-		} else {
-			echo "Failed to create new post!";
-			}
-		}
-	}
 	?>
 	<div class="mainwrap">
 		<div class="contentwrap">

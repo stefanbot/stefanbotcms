@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'connection.php';
+include 'classes.php';
 ?>
 <!doctype <!DOCTYPE html>
 <html>
@@ -85,22 +86,4 @@ include 'connection.php';
 		</ul>
 	</div>
 </footer>
-<?php
-class Rank {
-	public function getrank($rank) {
-		include 'connection.php';
-		$stmt = $pdo->prepare("SELECT rank FROM members where username = ?");
-		$stmt->bindParam(1, $_SESSION['username']);
-		$stmt->execute();
-		$result = $stmt->fetch();
-		return $result['rank'];
-	}
-	public function modifyrank($search, $rank_modify) {
-		include 'connection.php';
-		$stmt1 = $pdo->prepare("UPDATE members SET rank = $rank_modify WHERE username = ?");
-		$stmt1->bindParam(1, $_POST['search']);
-		$stmt1->execute();
-	}
-}
-?>
 </html>

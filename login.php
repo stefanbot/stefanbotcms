@@ -1,6 +1,7 @@
 <?php 
 ob_start();
-session_Start(); 
+session_Start();
+include 'classes.php'; 
 ?>
 <!doctype <!DOCTYPE html>
 <html>
@@ -15,23 +16,6 @@ session_Start();
 </head>
 <body>
 <?php 
-	class User {
-		public function log_in($username, $password) {
-			include 'connection.php';
-			$stmt = $pdo->prepare("SELECT * FROM members where username = ?");
-			$stmt->bindParam(1, $username);
-			$stmt->execute();
-			$result = $stmt->fetch();
-			$yourpassword = $result['password'];
-			if($result && password_verify($password, $yourpassword)){
-				echo "User Logged in!"  . "</p>";
-				$_SESSION['username'] = $username;
-				header('Location: login.php');
-			} else {
-				echo "<p>" . "Logging in failed!"  . "</p>";
-			}
-		}
-	}
 $username = $_POST['username'];
 $password = $_POST['password'];
 $submit = $_POST['submit'];

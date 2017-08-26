@@ -12,21 +12,7 @@
 <body>
 	<!-- Contact form php start here -->
 <?php 
-	Class Message {
-	 public function send_msg($name, $email, $message) {
-	 	include 'connection.php';
-		$stmt = $pdo->prepare("INSERT INTO messages(name, email, message) VALUES(?, ?, ?)");
-		$stmt->bindParam(1, $name);
-		$stmt->bindParam(2, $email);
-		$stmt->bindParam(3, $message);
-		$msgissent = $stmt->execute();
-		if ( $msgissent == TRUE) {
-			echo "Message Sent";
-		} else {
-			echo "Failed to send your message";
-		}
-	}
-}
+include 'classes.php';
 $name = htmlspecialchars($_POST['msgname']);
 $email = $_POST['msgmail'];
 $message = htmlspecialchars($_POST['msgmsg']);

@@ -2,12 +2,7 @@
 ob_start();
 session_start();
 include 'connection.php';
-if (isset($_SESSION['username'])) {
-	"View messages:";
-} else {
-	"You must be logged in to see this page!";
-	header("Location: login.php");
-}
+include 'classes.php';
 ?>
 <!doctype <!DOCTYPE html>
 <html>
@@ -52,25 +47,5 @@ if (isset($_SESSION['username'])) {
 			<li><a href="#"><img src="images/github.png" width="45" height="45" alt="github"></a></li>
 		</ul>
 	</div>
-<?php
-class Inbox {
-	public function get_message() {
-		include 'connection.php';
-		$stmt = $pdo->prepare("SELECT name, email, message FROM messages");
-		$stmt->execute();
-		$result = $stmt->fetchAll();
-		foreach($result as $row) {
-			echo "<div class='pborder'>";
-			echo "<p><strong>Name:</strong> " . $row['name'] . "</p>";
-			echo "<p><strong>Email:</strong> " . $row['email'] . "</p>";
-			echo "<p class ='msg1'><strong>Message:</strong> " . $row['message'] . "</p>";
-			echo "</div>";
-		}
-		if ($result == "") {
-			echo "There are no messages!";
-		}
-	}
-}
-?>
 </footer>
 </html>

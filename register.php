@@ -11,26 +11,8 @@
 </head>
 <body>
 <?php
-/* Clasa pentru inregistrare */
-include('connection.php');
-Class Register {
-	 public function reg($username, $password, $email) {
-	 	include 'connection.php';
-		$stmt = $pdo->prepare("INSERT INTO members(username, password, email) VALUES(?, ?, ?)");
-		$stmt->bindParam(1, $username);
-		$stmt->bindParam(2, $password);
-		$stmt->bindParam(3, $email);
-		$stmt->execute();
-		$verifyifcomplete = $stmt->execute();
-		if ( $verifyifcomplete == TRUE) {
-			echo "Registration Complete";
-		} else {
-			echo "Registration Failed";
-		}
-
-	}
-}
-
+include 'connection.php';
+include 'classes.php';
 $username = $_POST['username'];
 $password = $_POST['password'];
 $email = $_POST['email'];
