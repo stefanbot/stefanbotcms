@@ -3,6 +3,8 @@ ob_start();
 session_start();
 include 'connection.php';
 include 'classes.php';
+$checkrank = new Rank;
+if ($checkrank->getrank($result['rank'] === 1)) { 
 ?>
 <!doctype <!DOCTYPE html>
 <html>
@@ -48,4 +50,7 @@ include 'classes.php';
 		</ul>
 	</div>
 </footer>
+<?php } else {
+	echo "You can't access this page!";
+} ?>
 </html>

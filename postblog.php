@@ -1,3 +1,7 @@
+<?php 
+ob_start();
+session_start();
+?>
 <!doctype <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +16,8 @@
 <body>
 	<?php
 	include 'classes.php';
+	$checkrank = new Rank;
+	if($checkrank->getrank($result['rank'] === 1)) {
 	$blogtitle = $_POST['blogtitle'];
 	$blogcontent = $_POST['blogcontent'];
 	$blogsubmit = $_POST['blogsubmit'];
@@ -55,4 +61,8 @@
 		</ul>
 	</div>
 </footer>
+<?php } else {
+	echo "You can't access this page!";
+} 
+?>
 </html>
