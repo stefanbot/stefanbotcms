@@ -1,6 +1,6 @@
 <?php 
 try {
-	$pdo = new PDO("mysql:host=localhost;dbname=botste6_db", "botste6_db", "steaua");
+	$pdo = new PDO("mysql:host=localhost;dbname=xxx", "xxx", "xxx");
 } catch(Exception $e) {
 	die("Error: ". $e->getMessage());
 }

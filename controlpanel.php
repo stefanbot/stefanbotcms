@@ -3,7 +3,7 @@ session_start();
 include 'connection.php';
 include 'classes.php';
 ?>
-<!doctype <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">

@@ -6,7 +6,7 @@ include 'classes.php';
 $checkrank = new Rank;
 if ($checkrank->getrank($result['rank'] === 1)) { 
 ?>
-<!doctype <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
