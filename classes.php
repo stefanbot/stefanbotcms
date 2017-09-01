@@ -38,6 +38,8 @@ Class Register {
 	 public function reg($username, $password, $email) {
 	 	include 'connection.php';
 		$stmt = $pdo->prepare("INSERT INTO members(username, password, email) VALUES(?, ?, ?)");
+		$username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+		$password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 		$stmt->bindParam(1, $username);
 		$stmt->bindParam(2, $password);
 		$stmt->bindParam(3, $email);
@@ -55,6 +57,8 @@ Class Blogpost {
 	public function post_msg($blogtitle, $blogcontent) {
 	 	include 'connection.php';
 		$stmt = $pdo->prepare("INSERT INTO blog(title, content) VALUES(?, ?)");
+		$blogtitle = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
+		$blogcontent = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_STRING);
 		$stmt->bindParam(1, $blogtitle);
 		$stmt->bindParam(2, $blogcontent);
 		$posttoblog = $stmt->execute();
@@ -77,7 +81,8 @@ class Rank {
 	public function modifyrank($search, $rank_modify) {
 		include 'connection.php';
 		$stmt1 = $pdo->prepare("UPDATE members SET rank = $rank_modify WHERE username = ?");
-		$stmt1->bindParam(1, $_POST['search']);
+		$search = filter_input(INPUT_POST, 'rank', FILTER_SANITIZE_STRING);
+		$stmt1->bindParam(1, $search);
 		$stmt1->execute();
 	}
 }
@@ -105,6 +110,8 @@ Class Message {
 	public function send_msg($name, $email, $message) {
 	 	include 'connection.php';
 		$stmt = $pdo->prepare("INSERT INTO messages(name, email, message) VALUES(?, ?, ?)");
+		$name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+		$message = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_STRING);
 		$stmt->bindParam(1, $name);
 		$stmt->bindParam(2, $email);
 		$stmt->bindParam(3, $message);
