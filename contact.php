@@ -13,10 +13,10 @@
 	<!-- Contact form php start here -->
 <?php 
 include 'classes.php';
-$name = htmlspecialchars($_POST['msgname']);
+$name = filter_input(INPUT_POST, 'msgname', FILTER_SANITIZE_STRING);
 $email = $_POST['msgmail'];
-$message = htmlspecialchars($_POST['msgmsg']);
-$sendmsg = htmlspecialchars($_POST['msgsubmit']);
+$message = filter_input(INPUT_POST, 'msgmsg', FILTER_SANITIZE_STRING);
+$sendmsg = ($_POST['msgsubmit']);
 ?>
 	<!-- Contact form php end here-->
 	<div class="mainwrap">

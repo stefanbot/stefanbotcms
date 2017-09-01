@@ -13,8 +13,8 @@
 <?php
 include 'connection.php';
 include 'classes.php';
-$username = $_POST['username'];
-$password = $_POST['password'];
+$username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);;
+$password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 $email = $_POST['email'];
 $submit = $_POST['submit'];
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);

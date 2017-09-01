@@ -18,8 +18,8 @@ session_start();
 	include 'classes.php';
 	$checkrank = new Rank;
 	if($checkrank->getrank($result['rank'] === 1)) {
-	$blogtitle = $_POST['blogtitle'];
-	$blogcontent = $_POST['blogcontent'];
+	$blogtitle = filter_input(INPUT_POST, 'blogtitle', FILTER_SANITIZE_STRING);
+	$blogcontent = filter_input(INPUT_POST, 'blogcontent', FILTER_SANITIZE_STRING);
 	$blogsubmit = $_POST['blogsubmit'];
 	?>
 	<div class="mainwrap">
