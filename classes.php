@@ -39,11 +39,9 @@ Class Register {
 	 	include 'connection.php';
 		$stmt = $pdo->prepare("INSERT INTO members(username, password, email) VALUES(?, ?, ?)");
 		$username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
-		$password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 		$stmt->bindParam(1, $username);
 		$stmt->bindParam(2, $password);
 		$stmt->bindParam(3, $email);
-		$stmt->execute();
 		$verifyifcomplete = $stmt->execute();
 		if ( $verifyifcomplete == TRUE) {
 			echo "Registration Complete";
