@@ -379,3 +379,9 @@ textarea {
 .portofoliuwrap .pborder {
 	margin-top: 10px;
 }
+.deletepost {
+	font-size: 12px;
+	color: black;
+	margin-top: 15px;
+	padding-top: 5px;
+}

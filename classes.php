@@ -1,6 +1,4 @@
 <?php
-// sanitize
-$_POST = filter_input(INPUT_POST, FILTER_SANITIZE_STRING);
 class Inbox {
 	public function get_message() {
 		include 'connection.php';
@@ -85,7 +83,7 @@ class Rank {
 class Blogcontents {
 	public function get_contents() {
 		include 'connection.php';
-		$stmt = $pdo->prepare("SELECT title, content FROM blog");
+		$stmt = $pdo->prepare("SELECT title, content, post_id FROM blog");
 		$stmt->execute();
 		$result = $stmt->fetchAll();
 		foreach ($result as $row) {
@@ -93,7 +91,9 @@ class Blogcontents {
 			echo $row['title'];
 			echo "</h1></div>";
 			echo "<div class='pborder'>";
-			echo "<p>" . $row['content'] . "</p>";
+			echo "<p>" . $row['content'] . "</p>"; ?>
+			<a href="delete.php?id=<?php echo $row['post_id']; ?>"><div class="deletepost">Delete post</div></a>
+			<?php 
 			echo "</div>";
 		}
 		if($result == ""){
