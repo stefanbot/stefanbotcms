@@ -138,7 +138,8 @@ nav a {
 }
 nav a:hover {
 	color: #000000;
-	padding: 1px;
+	transition: all .3s ease;
+	-webkit-transition: all .3s ease;
 	background-color: #e2e8ec;
 }
 @media (max-width: 768px) {
@@ -149,6 +150,7 @@ nav a:hover {
 	}
 }
 nav li {
+	vertical-align: top;
 	margin-left: 1%;
 }
 nav ul {
